@@ -111,16 +111,17 @@ param
 	[Alias("password")]
     [securestring]$globalAdminPassword,
 
-    #Location. Default is westcentralus.
+    <#location. Default is southcentralus.  All other regions fail for Pay-As-You-Go or Free Trial 
+    Subscriptions types due to provisioning limits for those subscription types 181026 @1636CST.#>
     [Parameter(Mandatory = $false,
     ParameterSetName = "Deployment",
     Position = 7)]
     [Parameter(Mandatory = $false, 
     ParameterSetName = "CleanUp", 
     Position = 7)]
-    [ValidateSet("westus2","westcentralus")]
+    [ValidateSet("southcentralus")]
 	[Alias("loc")]
-    [string]$location = "westcentralus",
+    [string]$location = "southcentralus",
 
     #[Optional] Strong deployment password. Auto-generates password if not provided.
     [Parameter(Mandatory = $false,
